@@ -1,0 +1,25 @@
+FROM node:14
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Create logs directory
+RUN mkdir -p ./logs
+
+# Copy the application files
+COPY . .
+
+# Set the permissions for the logs folder
+RUN chmod -R 777 ./logs
+
+# Expose the port
+EXPOSE 5000
+
+# Run the application
+CMD ["node", "src/index.js"]

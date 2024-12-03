@@ -1,0 +1,8 @@
+{
+  "name": "megaproject",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node": "^22.11.0"
+  }
+}

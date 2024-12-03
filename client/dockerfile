@@ -1,0 +1,28 @@
+
+FROM node:14-alpine
+
+
+WORKDIR /app
+
+
+COPY package*.json ./
+
+
+RUN npm install
+
+
+COPY . .
+
+
+RUN npm run build
+
+
+RUN npm install -g serve
+
+
+EXPOSE 3000
+
+CMD ["serve", "-s", "build", "-l", "3000"]
+
+# docker run -p 3000:3000 react-docker-app
+# docker build -t react-docker-app .
